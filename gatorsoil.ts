@@ -33,12 +33,13 @@ namespace gatorSoil {
     //% weight=30 blockId="gatorSoil_moisture" block="get moisture on pin %readPin | in %GatorSoilType | using power pin %powerPin"
     export function moisture(readPin: AnalogPin, type: GatorSoilType, powerPin: DigitalPin): number{
       pins.digitalWritePin(powerPin, 1)//Toggle power readPin on and off to avoid corrosion
-	  let ADCVal = pins.analogReadPin(readPin)
+      basic.pause(10)//Pause to ensure the pin has time to provide maximum power to the sensor
+      let ADCVal = pins.analogReadPin(readPin)
       pins.digitalWritePin(powerPin, 0)
       switch(type){
-        case GatorSoilType.Moisture: return ADCVal / 1023.0
-        case GatorSoilType.ADCValue: return ADCVal
-        default: return -11111111
+	case GatorSoilType.Moisture: return ADCVal / 1023.0
+	case GatorSoilType.ADCValue: return ADCVal
+	default: return -11111111
       }
     }
 }
