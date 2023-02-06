@@ -1,3 +1,7 @@
+# Notes to future SWL folx working on these
+
+If makecode updates their extensions and these stop working as the V2 workaround. We will need to copy their extension that has been updated and re-add the pause in gatorsoil.ts ("basic.pause(10)//Pause to ensure the pin has time to provide maximum power to the sensor" under export function)
+
 # gator:soil Soil Moisture Sensor
 
 [![Community Discord](https://img.shields.io/discord/448979533891371018.svg)](https://aka.ms/makecodecommunity)
